@@ -6,11 +6,11 @@
 ### Make sure to create a `.env` file with following variables -
 
 ```
-DATABASE_URL="postgresql://neondb_owner:npg_wAi8k6SZVXlJ@ep-delicate-leaf-ad5nlism-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
+DATABASE_URL=
 
 
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_ZHluYW1pYy1nbnUtOTguY2xlcmsuYWNjb3VudHMuZGV2JA
-CLERK_SECRET_KEY=sk_test_xo2VD32TDJgl2j3A2rgmS6NkFcpnzA1dyPSsUhVD4S
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
 
 NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
 NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
