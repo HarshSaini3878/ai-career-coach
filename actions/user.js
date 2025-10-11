@@ -29,7 +29,7 @@ export async function updateUser(data) {
         // If industry doesn't exist, create it with default values
         if (!industryInsight) {
           const insights = await generateAIInsights(data.industry);
-
+          console.log(" hi from insights")
           industryInsight = await db.industryInsight.create({
             data: {
               industry: data.industry,
@@ -55,7 +55,7 @@ export async function updateUser(data) {
         return { updatedUser, industryInsight };
       },
       {
-        timeout: 10000, // default: 5000
+        timeout: 30000, // default: 5000
       }
     );
 

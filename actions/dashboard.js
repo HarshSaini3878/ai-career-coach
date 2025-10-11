@@ -3,9 +3,10 @@
 import { db } from "@/lib/prisma";
 import { auth } from "@clerk/nextjs/server";
 import { GoogleGenerativeAI } from "@google/generative-ai";
-
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+import { GoogleGenAI } from "@google/genai";
+// const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const ai = new GoogleGenAI({});
+// const model = ai.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 export const generateAIInsights = async (industry) => {
   const prompt = `
@@ -28,10 +29,16 @@ export const generateAIInsights = async (industry) => {
           Include at least 5 skills and trends.
         `;
 
-  const result = await model.generateContent(prompt);
-  const response = result.response;
-  const text = response.text();
+  const result = await ai.models.generateContent({
+     model: "gemini-2.5-flash",
+      contents:prompt,
+  })
+  // console.log("response", result.text);
+  
+  
+  const text = result.text;
   const cleanedText = text.replace(/```(?:json)?\n?/g, "").trim();
+  console.log(" hi : forom gemini  : %%%%",cleanedText)
 
   return JSON.parse(cleanedText);
 };
